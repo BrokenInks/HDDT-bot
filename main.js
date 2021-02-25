@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const beautify = require("beautify");
 const { prefix, token } = require('./config.json');
 
@@ -17,13 +17,11 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
-	console.log('Хикару запустилась!');
+	console.log('{DZ}HDDDT запустился!');
+	console.log('Создатель бота: BrokenInk#1212')
 	setInterval(function(){
 		let stausi = [
-	  'Как верефицироваться',
-	  'на котиков',
-	  'на свой код',
-	  'на TC Team'
+	  'My Owner BrokenInk#1212'
 		]
 		let aye_status = stausi[Math.floor(Math.random() * stausi.length)]
 		
@@ -90,12 +88,9 @@ setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 				}
 			}
 
-try {
-	command.execute(client, message, args);
-} catch (error) {
-	console.error(error);
-	message.reply('Ошибка!');
-}
-});
+			try {
+				command.execute(message, args, client);    } catch (error) {        console.error(error);
+			  }
+			  });
 
-client.login(token);
+client.login(process.etv.BOT_TOKEN);
